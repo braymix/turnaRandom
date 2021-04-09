@@ -52,31 +52,32 @@ export class RandomComponent implements OnInit {
     let j = 0;
     let tempo = [];
     for (let k = 0; k <= this.listUser.length; k++) {
-      if (k <= this.listUser.length) tempo.push(this.listUser[k]);
-
+      if (this.listUser[k] != undefined) tempo.push(this.listUser[k]);
       if (j == 7) {
-        this.listUser2.push(tempo);
-        j = 0;
-        tempo = [];
+        if (tempo.length != 0) {
+          this.listUser2.push(tempo);
+          j = 0;
+          tempo = [];
+        }
       } else if (k == this.listUser.length) {
-        this.listUser2.push(tempo);
+        if (tempo.length != 0) {
+          this.listUser2.push(tempo);
+        }
       } else {
         j++;
       }
     }
 
-    console.log(8 - (this.listUser2[this.listUser2.length - 1].length - 1));
-    if (8 - (this.listUser2[this.listUser2.length - 1].length - 1) == 8) {
+    //console.log(this.listUser2);
+    if (8 - this.listUser2[this.listUser2.length - 1].length == 0) {
       console.log();
     } else {
-      alert( "ne mancano " +
-      (8 - (this.listUser2[this.listUser2.length - 1].length - 1)))
+      alert(
+        "mancano " +
+          (8 - this.listUser2[this.listUser2.length - 1].length) +
+          " player Giacomo Pesci non è contento"
+      );
     }
-    // console.log(this.listUser.length / 8.0);
-    this.formGroup = this.fb.group({
-      persone: [""],
-    });
+    // console.log(this.listUser.length / 8.0)
   }
-
-
 }
