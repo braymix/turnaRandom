@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-xl">
+      <div style="text-align: center;">
+        <form [formGroup]="formGroup">
+          <div class="form-group mt 3">
+            <label for="exampleFormControlInput1" class="mb-3 mt-3"
+              ><h1>
+                applicazione di turna inserisci i nomi dei partecipanti
+              </h1></label
+            >
+            <textarea
+              class="form-control"
+              formControlName="persone"
+              id="exampleFormControlTextarea1"
+              rows="10"
+            ></textarea>
+          </div>
+        </form>
+        <button (click)="send()" class="btn btn-primary mt-3">
+          genera
+        </button>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row">
+    <div>
+      <div class="p-grid">
+        <div class="p-col" *ngFor="let element of listUser2; index as i">
+          <table class="table">
+            <tr>
+              <th scope="col">gruppo {{ i + 1 }}</th>
+            </tr>
+            <tr *ngFor="let element2 of element">
+              {{
+                element2
+              }}
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
